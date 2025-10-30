@@ -1,11 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>How-2-Buy Webapp</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script src="/src/main.jsx" type="module"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>How-2-Buy Web App</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>How-2-Buy Web App</h1>
+
+  <form id="how2buy-form">
+    <section id="profile-section">
+      <h2>1. Client Profile (Net Worth)</h2>
+      <div class="owners" id="owners-container">
+        <div class="owner-entry">
+          <label>Owner Age (ANB):</label>
+          <input type="number" name="age" min="18" max="100" required />
+          <label>Valuation of Existing Property (SGD):</label>
+          <input type="number" name="propertyValuation" min="0" required />
+          <label>Outstanding Loan (SGD):</label>
+          <input type="number" name="outstandingLoan" min="0" required />
+          <label>CPF utilized + accrued interest (SGD):</label>
+          <input type="number" name="cpfUtilized" min="0" required />
+          <label>CPF OA Current (SGD):</label>
+          <input type="number" name="cpfOA" min="0" required />
+          <label>Estimate Monthly Income (SGD):</label>
+          <input type="number" name="monthlyIncome" min="0" required />
+          <label>Cash Available for Next Purchase (SGD):</label>
+          <input type="number" name="cashAvailable" min="0" required />
+        </div>
+      </div>
+      <button type="button" id="add-owner-btn">Add Another Owner</button>
+    </section>
+
+    <section id="sales-proceeds-section">
+      <h2>2. Calculate Expected Sales Proceeds</h2>
+      <label for="sellingPrice">Selling Price (SGD):</label>
+      <input type="number" id="sellingPrice" min="0" required />
+      <label for="agentFee">Agent Fee (SGD):</label>
+      <input type="number" id="agentFee" min="0" value="0" />
+      <label for="legalFee">Legal Fee (SGD):</label>
+      <input type="number" id="legalFee" min="0" value="0" />
+      <label for="resaleLevy">Resale Levy (SGD) if applicable:</label>
+      <input type="number" id="resaleLevy" min="0" value="0" />
+    </section>
+
+    <section id="purchase-power-section">
+      <h2>3. Current Purchase Power (MAS TDSR / MSR Rules)</h2>
+      <label for="totalOutstandingLoan">Current Mortgage Loan Outstanding (SGD):</label>
+      <input type="number" id="totalOutstandingLoan" min="0" value="0" />
+      <label for="carLoan">Car Loan Outstanding (SGD):</label>
+      <input type="number" id="carLoan" min="0" value="0" />
+      <label for="otherLoan">Other Loans (credit cards, personal loans) Outstanding (SGD):</label>
+      <input type="number" id="otherLoan" min="0" value="0" />
+      <label for="monthlyMortgageRepayment">Monthly Mortgage Repayment (SGD):</label>
+      <input type="number" id="monthlyMortgageRepayment" min="0" value="0" />
+      <label for="monthlyCarLoanRepayment">Monthly Car Loan Repayment (SGD):</label>
+      <input type="number" id="monthlyCarLoanRepayment" min="0" value="0" />
+      <label for="monthlyOtherLoanRepayment">Monthly Other Loan Repayment (SGD):</label>
+      <input type="number" id="monthlyOtherLoanRepayment" min="0" value="0" />
+    </section>
+
+    <section id="pledge-section">
+      <h2>4. Pledge - Cover Monthly Income Shortfall</h2>
+      <label for="pledgeAmount">Pledge Amount (SGD):</label>
+      <input type="number" id="pledgeAmount" min="0" value="0" />
+    </section>
+
+    <section id="summary-section">
+      <h2>5. Summary - How-2-Buy</h2>
+      <div id="summary-output" style="white-space: pre-wrap; font-family: monospace; background: #eee; padding: 10px;"></div>
+    </section>
+
+    <button type="submit">Calculate</button>
+  </form>
+
+  <script src="script.js"></script>
+</body>
 </html>
